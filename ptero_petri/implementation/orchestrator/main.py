@@ -2,6 +2,7 @@ from ptero_petri.implementation import exit_codes
 from ptero_petri.implementation.configuration.inject.initialize import initialize_injector
 from ptero_petri.implementation.orchestrator.command import OrchestratorCommand
 from ptero_petri.implementation.util import signal_handlers
+from ptero_common.logging_configuration import configure_logging
 from twisted.internet import reactor
 import logging
 import os
@@ -29,12 +30,12 @@ def main():
     return exit_code
 
 
-def _get_logging_level():
-    return os.environ.get('PTERO_PETRI_LOG_LEVEL', 'INFO').upper()
-
-
 def naked_main():
-    logging.basicConfig(level=_get_logging_level())
+    configure_logging(level_env_var='PTERO_PETRI_LOG_LEVEL',
+            time_env_var='PTERO_PETRI_LOG_TIME')
+    logging.getLogger('ptero_petri.implementation.brokers').setLevel(
+            os.environ.get('PTERO_PETRI_BROKER_LOG_LEVEL', 'INFO'))
+    logging.getLogger('pika').setLevel('INFO')
 
     injector = initialize_injector()
 

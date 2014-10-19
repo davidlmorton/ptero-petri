@@ -2,6 +2,9 @@ import os
 import requests
 import simplejson
 import time
+import logging
+
+LOG = logging.getLogger(__name__)
 
 
 __all__ = ['send_webhook']
@@ -9,11 +12,12 @@ __all__ = ['send_webhook']
 
 def send_webhook(url, response_data=None, data=None):
 
-    _retry(requests.put, url,
-            data=_request_body(
-                response_links=_response_links(**response_data),
-                data=data),
+    body = _request_body(response_links=_response_links(**response_data),
+                data=data)
+    response = _retry(requests.put, url, data=body,
             headers={'Content-Type': 'application/json'})
+    LOG.info("%s from PUT  %s", response.status_code, url)
+    LOG.debug("BODY: %s", body)
 
 
 def _response_links(net_key, response_places, color_descriptor):

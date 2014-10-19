@@ -35,7 +35,8 @@ def naked_main():
             time_env_var='PTERO_PETRI_LOG_TIME')
     logging.getLogger('ptero_petri.implementation.brokers').setLevel(
             os.environ.get('PTERO_PETRI_BROKER_LOG_LEVEL', 'INFO'))
-    logging.getLogger('pika').setLevel('INFO')
+    logging.getLogger('pika').setLevel('WARN')
+    logging.getLogger('requests').setLevel('WARN')
 
     injector = initialize_injector()
 

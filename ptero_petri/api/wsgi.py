@@ -17,5 +17,7 @@ if __name__ == '__main__':
     args = parse_args()
     configure_logging(level_env_var='PTERO_PETRI_LOG_LEVEL',
             time_env_var='PTERO_PETRI_LOG_TIME')
-    logging.getLogger('pika').setLevel('INFO')
+    logging.getLogger('pika').setLevel('WARN')
+    logging.getLogger('requests').setLevel('WARN')
+    logging.getLogger('werkzeug').setLevel('WARN')
     app.run(port=args.port, debug=args.debug)

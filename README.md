@@ -1,17 +1,6 @@
 # PTero Petri Net Service
-[![Build Status](https://travis-ci.org/genome/ptero-petri.svg?branch=master)](https://travis-ci.org/genome/ptero-petri)
-[![Coverage Status](https://img.shields.io/coveralls/genome/ptero-petri.svg)](https://coveralls.io/r/genome/ptero-petri)
-[![Requirements Status](https://requires.io/github/genome/ptero-petri/requirements.svg?branch=master)](https://requires.io/github/genome/ptero-petri/requirements/?branch=master)
+[![Build Status](https://travis-ci.org/davidlmorton/ptero-petri.svg?branch=master)](https://travis-ci.org/davidlmorton/ptero-petri)
+[![Coverage Status](https://coveralls.io/repos/github/davidlmorton/ptero-petri/badge.svg)](https://coveralls.io/github/davidlmorton/ptero-petri)
+[![Requirements Status](https://requires.io/github/davidlmorton/ptero-petri/requirements.svg?branch=master)](https://requires.io/github/davidlmorton/ptero-petri/requirements/?branch=master)
 
 This project provides the Petri net core of the Ptero workflow system.
-
-The API is currently described
-[here](https://github.com/genome/ptero-apis/blob/master/petri.md).
-
-
-## Testing
-
-To run tests:
-
-    pip install tox
-    tox

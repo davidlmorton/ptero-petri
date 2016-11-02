@@ -1,4 +1,4 @@
-from . import celery_tasks  # nopep8
+from . import celery_tasks  # noqa
 from . import storage
 from celery.signals import worker_init, setup_logging
 from ptero_common.logging_configuration import configure_celery_logging

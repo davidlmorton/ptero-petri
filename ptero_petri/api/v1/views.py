@@ -1,6 +1,6 @@
 from . import validators
 from flask import g, request
-from flask.ext.restful import Resource
+from flask_restful import Resource
 from jsonschema import ValidationError
 import base64
 import uuid
